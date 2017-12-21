@@ -8,14 +8,16 @@ import android.widget.ProgressBar;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, DownLoad.IProgress {
     private String path = "http://video.dameiketang.com/mkt2016%2F%E9%83%91%E7%82%9C%E4%B8%9C%2F%E5%A4%B4%E7%9A%AE%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%981.mp4";
-    private DownLoad downLoad;
+    //private DownLoad downLoad;
     private ProgressBar pBar;
+    private OkManager downLoad;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        downLoad = new DownLoad(path,this);
+        //downLoad = new DownLoad(path,this);
+        downLoad = new OkManager(path,this);
         initView();
     }
 

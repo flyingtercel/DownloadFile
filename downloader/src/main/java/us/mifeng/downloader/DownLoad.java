@@ -50,9 +50,6 @@ public class DownLoad {
         name = path.substring(path.lastIndexOf("/") + 1);
         //创建线程池
         pool = new ThreadPoolExecutor(5,5,50, TimeUnit.SECONDS,new ArrayBlockingQueue<Runnable>(2000));
-        myThread = new MyThread();
-        //执行线程
-        pool.execute(myThread);
     }
 
     class MyThread extends Thread {
@@ -128,21 +125,24 @@ public class DownLoad {
         }
 
     }
+
+
     //控制开始与下载
     public void start() {
         isDown = true;
         if (myThread == null){
             myThread = new MyThread();
             pool.execute(myThread);
+        }else{
+            pool.execute(myThread);
         }
 
     }
     //控制暂停下载
     public void stop() {
+        isDown = false;
         if (myThread!=null){
-            isDown = false;
             pool.remove(myThread);
-
             myThread = null;
         }
     }
