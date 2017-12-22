@@ -5,8 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="us.mifeng.behinddownfile.MainActivity">
-
+    <ProgressBar
+        android:layout_marginTop="20dp"
+        android:id="@+id/progress"
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        style="@android:style/Widget.ProgressBar.Horizontal"/>
     <LinearLayout
+        android:layout_below="@id/progress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">

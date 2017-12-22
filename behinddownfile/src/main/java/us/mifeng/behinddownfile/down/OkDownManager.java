@@ -1,6 +1,7 @@
 package us.mifeng.behinddownfile.down;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 
 import java.io.File;
@@ -106,6 +107,9 @@ public class OkDownManager {
                     String value = format.format(dd*100)+"%";
                     Log.i(TAG, "httpUrldownLoadData: ===="+value);
                     dao.updateData(info);
+                    Intent intent = new Intent("us.mifeng");
+                    intent.putExtra("progress",(int)(dd*100));
+                    context.sendBroadcast(intent);
                 }
             }
 
@@ -152,6 +156,9 @@ public class OkDownManager {
                     String value = format.format(dd*100)+"%";
                     Log.i(TAG ,"=====sss========"+value);
                     dao.updateData(info);
+                    Intent intent = new Intent("us.mifeng");
+                    intent.putExtra("progress",(int)(dd*100));
+                    context.sendBroadcast(intent);
                 }
             }
 
